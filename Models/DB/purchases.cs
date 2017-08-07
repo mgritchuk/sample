@@ -1,4 +1,4 @@
-namespace Models
+namespace Models.DB
 {
     using System;
     using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace Models
 
         public string customerAddress { get; set; }
 
-        public int? bookId { get; set; }
+        public int bookId { get; set; }
 
         public DateTime dt_purchased { get; set; }
 

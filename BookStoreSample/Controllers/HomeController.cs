@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +9,16 @@ namespace BookStoreSample.Controllers
 {
 	public class HomeController : Controller
 	{
+		MainContext db = new MainContext();
+
+
 		public ActionResult Index()
 		{
-			return View();
-		}
-
-		public ActionResult About()
-		{
-			ViewBag.Message = "Your application description page.";
+			IEnumerable<books> books = db.books.ToList();
+			ViewBag.books = books;
 
 			return View();
 		}
 
-		public ActionResult Contact()
-		{
-			ViewBag.Message = "Your contact page.";
-
-			return View();
-		}
 	}
 }

@@ -1,4 +1,4 @@
-namespace Models
+namespace Models.DB
 {
     using System;
     using System.Collections.Generic;
@@ -8,11 +8,11 @@ namespace Models
 
     public partial class books
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public books()
-        {
-            purchases = new HashSet<purchases>();
-        }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        //public books()
+        //{
+        //    purchases = new HashSet<purchases>();
+        //}
 
         public int id { get; set; }
 
@@ -23,7 +23,7 @@ namespace Models
 
         public int price { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+		//[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<purchases> purchases { get; set; }
     }
 }
