@@ -6,16 +6,31 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using BookStoreSample.Models;
+using SimpleInjector;
+using SimpleInjector.Integration.WebApi;
+using SimpleInjector.Extensions.ExecutionContextScoping;
+using BLL.Interfaces;
+using BLL.Managers;
+using System.Web.Http;
+using DAL;
 
 namespace BookStoreSample
 {
     public partial class Startup
     {
+		Container container = new Container();
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
-            // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
+			container.Options.DefaultScopedLifestyle = new ExecutionContextScopeLifestyle();
+			container.Register<MainContext>(Lifestyle.Scoped);
+			container.Register<IBooksManager, BooksManager>();
+
+			container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
+			container.Verify();
+			GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
+			// Configure the db context, user manager and signin manager to use a single instance per request
+			app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 

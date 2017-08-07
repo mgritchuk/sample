@@ -7,7 +7,7 @@ namespace DAL
 	using System.Collections.Generic;
 	using Models.DB;
 
-	public partial class MainContext : DbContext
+	public class MainContext : DbContext
 	{
 		public MainContext()
 			: base("DefaultConnection")

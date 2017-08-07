@@ -17,8 +17,12 @@ namespace Models.DB
 
         public int bookId { get; set; }
 
-        public DateTime dt_purchased { get; set; }
+		//public int discountId { get; set; }
+
+		public DateTime dt_purchased { get; set; }
 
         public virtual books books { get; set; }
-    }
+
+		//public virtual discount discount { get; set; }
+	}
 }

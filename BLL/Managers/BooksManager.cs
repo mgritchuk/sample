@@ -1,4 +1,4 @@
-﻿using System;
+﻿using AutoMapper;
 using System.Collections.Generic;
 using System.Linq;
 using Models.DB;
@@ -19,6 +19,11 @@ namespace BLL.Managers
 
 			return await Add<purchases, PurchasesDTO>(purchase, (db, dto) => dto.id = db.id); 
 		
+		}
+
+		public IEnumerable<BooksDTO> GetAllBooks()
+		{
+			return Mapper.Map<List<books>, List<BooksDTO>>( context.books.ToList());
 		}
 	}
 }

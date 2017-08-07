@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\books.cs" />
+    <Compile Include="DB\discount.cs" />
     <Compile Include="DB\purchases.cs" />
     <Compile Include="DTO\BooksDTO.cs" />
     <Compile Include="DTO\PurchasesDTO.cs" />
