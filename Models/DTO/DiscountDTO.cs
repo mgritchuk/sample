@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.DB
+namespace Models.DTO
 {
-	public class discount
+	public class DiscountDTO
 	{
 
 		public int id { get; set; }
@@ -15,6 +15,7 @@ namespace Models.DB
 
 		public string description { get; set; }
 
-		public virtual List<purchases> purchases { get; set; }
 	}
+
 }
+

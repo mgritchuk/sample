@@ -26,6 +26,8 @@ namespace Models.DTO
 
 		public int bookId { get; set; }
 
+		public int discountId { get; set; }
+
 		public DateTime dt_purchased { get; set; }
 
 	}

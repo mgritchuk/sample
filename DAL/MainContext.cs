@@ -16,6 +16,7 @@ namespace DAL
 
 		public virtual DbSet<books> books { get; set; }
 		public virtual DbSet<purchases> purchases { get; set; }
+		public virtual DbSet<discount> discount { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
@@ -23,6 +24,12 @@ namespace DAL
 				.HasMany(e => e.purchases)
 				.WithRequired(e => e.books)
 				.HasForeignKey(e => e.bookId)
+				.WillCascadeOnDelete(false);
+
+			modelBuilder.Entity<discount>()
+				.HasMany(d => d.purchases)
+				.WithRequired(p => p.discount)
+				.HasForeignKey(p => p.discountId)
 				.WillCascadeOnDelete(false);
 		}
 	}

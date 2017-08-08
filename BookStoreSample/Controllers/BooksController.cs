@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using BLL.Interfaces;
 using Models.DTO;
+using System.Threading.Tasks;
 
 namespace BookStoreSample.Controllers
 {
@@ -26,9 +27,9 @@ namespace BookStoreSample.Controllers
 		}
 	
 		[HttpPost]
-		public IHttpActionResult PostPurchase(PurchasesDTO purchase)
+		public async Task<IHttpActionResult> PostPurchase(PurchasesDTO purchase)
 		{
-			return Json(booksManager.BuyBook(purchase));
+			return Json(await booksManager.BuyBook(purchase));
 		}
 
     }

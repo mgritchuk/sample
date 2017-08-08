@@ -1,0 +1,43 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Book purchase</title>
+</head>
+<body>
+	<div>
+		
+		<form method="post" action="">
+			<input type="hidden" value="@ViewBag.BookId" name="BookId" />
+			<table>
+				<tr>
+					<td><p>Customer name </p></td>
+					<td><input type="text" name="customer" /> </td>
+				</tr>
+				<tr>
+					<td><p>Customer address :</p></td>
+					<td>
+						<input type="text" name="customerAddress" />
+					</td>
+				</tr>
+
+				<tr>
+					<td><p>Discount, % :</p></td>
+					@*<td>
+						<input type="number" max="100" min="0" name="discount" />
+					</td>*@
+					<asp:DropDownList ID="DropDownListSubContractors" 
+									  DataTextField="Company_Name" DataValueField="id">
+					</asp:DropDownList>
+				</tr>
+
+				<tr><td><input type="submit" value="Ok" /> </td><td></td></tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

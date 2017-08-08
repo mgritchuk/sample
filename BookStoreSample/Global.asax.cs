@@ -31,6 +31,9 @@ namespace BookStoreSample
 
 			conf.CreateMap<books, BooksDTO>();
 			conf.CreateMap<BooksDTO, books>();
+
+			conf.CreateMap<discount, DiscountDTO>();
+			conf.CreateMap<DiscountDTO, discount>();
 		}
 
     }
