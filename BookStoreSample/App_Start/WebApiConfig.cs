@@ -10,8 +10,10 @@ namespace BookStoreSample
 	{
 		public static void Register(HttpConfiguration configuration)
 		{
-			configuration.Routes.MapHttpRoute("API Default", "api/{controller}/{id}",
+			//configuration.MapHttpAttributeRoutes();
+			configuration.Routes.MapHttpRoute("API Default", "api/{controller}/{action}/{id}",
 				new { id = RouteParameter.Optional });
+			//configuration.Formatters.Remove(configuration.Formatters.XmlFormatter);
 		}
 	}
 }
