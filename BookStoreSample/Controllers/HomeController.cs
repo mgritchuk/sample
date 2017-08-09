@@ -11,6 +11,7 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Text;
+using BookStoreSample.Models;
 
 namespace BookStoreSample.Controllers
 {
@@ -54,8 +55,20 @@ namespace BookStoreSample.Controllers
 					discounts = JsonConvert.DeserializeObject<List<DiscountDTO>>(await response.Content.ReadAsStringAsync());
 				}
 			}
-			ViewBag.Discounts = discounts;
-			return View();
+			var list = new List<DropDownList>();
+			foreach(var discount in discounts)
+			{
+				list.Add(new DropDownList
+				{
+					Key = discount.id.ToString(),
+					Display = discount.description + " (" + discount.percentage + "%)"
+				});
+			}
+
+			var model = new DiscountViewModel();
+			model.DropDownList = new SelectList(list, "Key", "Display");
+			//ViewBag.Discounts = discounts;
+			return View(model);
 		}
 
 		[HttpPost]

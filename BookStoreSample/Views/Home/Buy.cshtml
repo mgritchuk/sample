@@ -1,5 +1,6 @@
 ﻿@{
 	Layout = null;
+	@model BookStoreSample.Models.DiscountViewModel
 }
 
 <!DOCTYPE html>
@@ -15,7 +16,7 @@
 			<input type="hidden" value="@ViewBag.BookId" name="BookId" />
 			<table>
 				<tr>
-					<td><p>Customer name </p></td>
+					<td><p>Customer name :</p></td>
 					<td><input type="text" name="customer" /> </td>
 				</tr>
 				<tr>
@@ -26,14 +27,24 @@
 				</tr>
 
 				<tr>
-					<td><p>Discount, % :</p></td>
-					@*<td>
-						<input type="number" max="100" min="0" name="discount" />
-					</td>*@
-					@*<asp:DropDownList ID="DropDownListSubContractors" 
-									  DataTextField="Company_Name" DataValueField="id">
-					</asp:DropDownList>*@
-					@*@Html.DropDownListFor(model => model.tipo, ViewBag.Discounts, "-- Select discount --")*@
+					<td><p>Discount :</p></td>
+					
+					@*<td>@Html.DropDownListFor(m => m.DropDownList, Model.DropDownList)</td>*@
+					<td>
+						<select name="discountId" id="myid">
+							@foreach (SelectListItem item in Model.DropDownList)
+							{
+								if (item.Value == Model.id.ToString())
+								{
+									<option value="@(item.Value)" selected="selected">@item.Text</option>
+								}
+								else
+								{
+									<option value="@(item.Value)">@item.Text</option>
+								}
+							}
+						</select>
+					</td>
 				</tr>
 
 				<tr><td><input type="submit" value="Ok" /> </td><td></td></tr>
