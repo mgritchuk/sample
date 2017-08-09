@@ -25,5 +25,10 @@ namespace BLL.Managers
 		{
 			return Mapper.Map<List<books>, List<BooksDTO>>( context.books.ToList());
 		}
+
+		public IEnumerable<DiscountDTO> GetAllDiscounts()
+		{
+			return Mapper.Map<List<discount>, List<DiscountDTO>>(context.discount.ToList());
+		}
 	}
 }

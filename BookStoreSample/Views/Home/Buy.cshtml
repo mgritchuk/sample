@@ -30,9 +30,10 @@
 					@*<td>
 						<input type="number" max="100" min="0" name="discount" />
 					</td>*@
-					<asp:DropDownList ID="DropDownListSubContractors" 
+					@*<asp:DropDownList ID="DropDownListSubContractors" 
 									  DataTextField="Company_Name" DataValueField="id">
-					</asp:DropDownList>
+					</asp:DropDownList>*@
+					@*@Html.DropDownListFor(model => model.tipo, ViewBag.Discounts, "-- Select discount --")*@
 				</tr>
 
 				<tr><td><input type="submit" value="Ok" /> </td><td></td></tr>

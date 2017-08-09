@@ -25,12 +25,21 @@ namespace BookStoreSample.Controllers
 		{
 			return Json(booksManager.GetAllBooks());
 		}
-	
+
 		[HttpPost]
 		public async Task<IHttpActionResult> PostPurchase(PurchasesDTO purchase)
 		{
 			return Json(await booksManager.BuyBook(purchase));
 		}
 
+		[HttpGet]
+		public IHttpActionResult GetAllDiscounts()
+		{
+			return Json(booksManager.GetAllDiscounts());
+		}
+
+
     }
+
+	
 }

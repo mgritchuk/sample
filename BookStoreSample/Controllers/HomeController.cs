@@ -17,7 +17,7 @@ namespace BookStoreSample.Controllers
 	public class HomeController : Controller
 	{
 		private readonly Uri apiUri = new Uri("http://localhost:57707");
-
+		
 		public async Task<ActionResult> Index()
 		{
 			ViewBag.books = new List<BooksDTO>();
@@ -31,14 +31,30 @@ namespace BookStoreSample.Controllers
 				{
 					ViewBag.books = JsonConvert.DeserializeObject<IEnumerable<BooksDTO>>(await response.Content.ReadAsStringAsync());
 				}
+				
+				
 			}
 			return View();
 		}
 
 		[HttpGet]
-		public ActionResult Buy(int id)
+		public async Task<ActionResult> Buy(int id)
 		{
 			ViewBag.BookId = id;
+			List<DiscountDTO> discounts = new List<DiscountDTO>();
+			using (var client = new HttpClient())
+			{
+				client.BaseAddress = apiUri;
+				client.DefaultRequestHeaders.Accept.Clear();
+				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+				var response = await client.GetAsync("api/Books/GetAllDiscounts");
+
+				if (response.IsSuccessStatusCode)
+				{
+					discounts = JsonConvert.DeserializeObject<List<DiscountDTO>>(await response.Content.ReadAsStringAsync());
+				}
+			}
+			ViewBag.Discounts = discounts;
 			return View();
 		}
 

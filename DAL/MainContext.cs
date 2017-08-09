@@ -26,11 +26,16 @@ namespace DAL
 				.HasForeignKey(e => e.bookId)
 				.WillCascadeOnDelete(false);
 
-			modelBuilder.Entity<discount>()
-				.HasMany(d => d.purchases)
-				.WithRequired(p => p.discount)
-				.HasForeignKey(p => p.discountId)
-				.WillCascadeOnDelete(false);
+			//modelBuilder.Entity<discount>()
+			//	.HasMany(d => d.purchases)
+			//	.WithRequired(p => p.discount)
+			//	.HasForeignKey(p => p.discountId)
+			//	.WillCascadeOnDelete(false);
+
+			modelBuilder.Entity<purchases>()
+				.HasRequired(p => p.discount)
+				.WithMany(d => d.purchases)
+				.HasForeignKey(p => p.discountId);
 		}
 	}
 }

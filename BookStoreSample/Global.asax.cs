@@ -16,6 +16,7 @@ namespace BookStoreSample
         protected void Application_Start()
         {
 			Mapper.Initialize(InitMapper);
+
 			WebApiConfig.Register(GlobalConfiguration.Configuration);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

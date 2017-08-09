@@ -13,6 +13,7 @@ namespace BLL.Interfaces
 		Task<PurchasesDTO> BuyBook(PurchasesDTO purchase);
 
 		IEnumerable<BooksDTO> GetAllBooks();
+		IEnumerable<DiscountDTO> GetAllDiscounts();
 
 	}
 }

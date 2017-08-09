@@ -21,8 +21,10 @@ namespace Models.DB
 
 		public DateTime dt_purchased { get; set; }
 
-        public virtual books books { get; set; }
+		[ForeignKey("bookId")]
+		public virtual books books { get; set; }
 
+		[ForeignKey("discountId")]
 		public virtual discount discount { get; set; }
 	}
 }
