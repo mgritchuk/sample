@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BookStoreSample</name>
+    </assembly>
+    <members>
+        <member name="M:BookStoreSample.Controllers.BooksController.GetAllBooks">
+            <summary>
+            Get all books table records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreSample.Controllers.BooksController.GetBook(System.Int32)">
+            <summary>
+            Get book by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreSample.Controllers.BooksController.PostBook(Models.DTO.BooksDTO)">
+            <summary>
+            Post single book
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreSample.Controllers.BooksController.PostBooks(System.Collections.Generic.IEnumerable{Models.DTO.BooksDTO})">
+            <summary>
+            Post multiple books
+            </summary>
+            <param name="books"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreSample.Controllers.BooksController.PutBook(Models.DTO.BooksDTO)">
+            <summary>
+            Update a book
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreSample.Controllers.BooksController.DeleteBook(System.Int32)">
+            <summary>
+            Remove book by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreSample.Controllers.BooksController.PostPurchase(Models.DTO.PurchasesDTO)">
+            <summary>
+            Post purchase
+            </summary>
+            <param name="purchase"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStoreSample.Controllers.BooksController.GetAllDiscounts">
+            <summary>
+            Get all discount records
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
